@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="customerBP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@customerController.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane fx:id="stackPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Add Loans">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="1259.0">
+                           <children>
+                              <GridPane prefHeight="574.0" prefWidth="1002.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="218.0" minHeight="10.0" prefHeight="216.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="207.0" minHeight="0.0" prefHeight="85.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="395.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="395.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="395.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label fx:id="FilePathLabel" prefHeight="17.0" prefWidth="369.0" text="Load an XML file:" />
+                                    <Button fx:id="loadFileButton" mnemonicParsing="false" onAction="#LoadFileButtonListener" prefHeight="26.0" prefWidth="84.0" text="Load File" GridPane.columnIndex="1" />
+                                    <Label fx:id="enterLoanLabel" prefHeight="17.0" prefWidth="161.0" text="Enter a new loan manually:" GridPane.rowIndex="4" />
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="ID:                    " />
+                                          <TextField fx:id="idText" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Category:                " />
+                                          <TextField fx:id="categoryText" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Total yaz:         " />
+                                          <TextField fx:id="yazText" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label text="Yaz per payment:   " />
+                                          <TextField fx:id="yazPerPaymentText" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Interest rate:    " />
+                                          <TextField fx:id="interestText" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="Total capital:           " />
+                                          <TextField fx:id="capitalText" />
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="enterLoanButton" mnemonicParsing="false" onAction="#enterLoanButtonActionListener" text="Enter loan" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Information">
+                     <content>
+                        <SplitPane dividerPositions="0.7" prefHeight="406.0" prefWidth="828.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="248.0" prefWidth="405.0">
+                                       <items>
+                                          <AnchorPane minHeight="250.0" minWidth="1000.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <TableView fx:id="givenLoansTable" prefHeight="637.0" prefWidth="878.0">
+                                                   <columns>
+                                                      <TableColumn prefWidth="75.0" text="Loans Given">
+                                                         <columns>
+                                                            <TableColumn fx:id="id" maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="46.0" text="ID" />
+                                                            <TableColumn fx:id="owner" maxWidth="30.0" minWidth="150.0" prefWidth="30.0" text="Owner" />
+                                                            <TableColumn fx:id="category" maxWidth="21.0" minWidth="150.0" prefWidth="14.0" text="Category" />
+                                                            <TableColumn fx:id="capital" maxWidth="21.0" minWidth="150.0" prefWidth="14.0" text="Capital" />
+                                                            <TableColumn fx:id="totalMonths" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Total months for the loan" />
+                                                            <TableColumn fx:id="interestRate" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Interest rate" />
+                                                            <TableColumn fx:id="monthsPerPayment" maxWidth="43.0" minWidth="150.0" prefWidth="43.0" text="Months per payment" />
+                                                            <TableColumn fx:id="status" maxWidth="82.0" minWidth="150.0" prefWidth="47.0" text="Status" />
+                                                            <TableColumn fx:id="interestPaid" maxWidth="136.0" minWidth="150.0" prefWidth="38.0" text="Interest paid" />
+                                                            <TableColumn fx:id="capitalPaid" maxWidth="78.0" minWidth="150.0" prefWidth="78.0" resizable="false" text="Capital paid" />
+                                                            <TableColumn fx:id="collectedCapital" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Collected Capital" />
+                                                            <TableColumn fx:id="remainingCapital" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Remaining Capital" />
+                                                            <TableColumn fx:id="activeSince" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Active since" />
+                                                            <TableColumn fx:id="nextPaymentOn" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Next payment on" />
+                                                            <TableColumn fx:id="capitalRemaining" maxWidth="245.0" minWidth="150.0" prefWidth="97.0" text="Capital Remaining" />
+                                                            <TableColumn fx:id="interestRemaining" maxWidth="306.0" minWidth="150.0" prefWidth="42.0" text="Interest Remaining" />
+                                                            <TableColumn fx:id="dateFinished" maxWidth="236.0" minWidth="150.0" prefWidth="53.0" text="Date finished" />
+                                                         </columns>
+                                                      </TableColumn>
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                                          <TableView fx:id="takenLoansTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1000.0">
+                                             <columns>
+                                                <TableColumn prefWidth="75.0" text="Loans Taken">
+                                                   <columns>
+                                                      <TableColumn fx:id="id1" maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="46.0" text="ID" />
+                                                      <TableColumn fx:id="owner1" maxWidth="30.0" minWidth="150.0" prefWidth="30.0" text="Owner" />
+                                                      <TableColumn fx:id="category1" maxWidth="21.0" minWidth="150.0" prefWidth="14.0" text="Category" />
+                                                      <TableColumn fx:id="capital1" maxWidth="21.0" minWidth="150.0" prefWidth="14.0" text="Capital" />
+                                                      <TableColumn fx:id="totalMonths1" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Total months for the loan" />
+                                                      <TableColumn fx:id="interestRate1" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Interest rate" />
+                                                      <TableColumn fx:id="monthsPerPayment1" maxWidth="43.0" minWidth="150.0" prefWidth="43.0" text="Months per payment" />
+                                                      <TableColumn fx:id="status1" maxWidth="82.0" minWidth="150.0" prefWidth="47.0" text="Status" />
+                                                      <TableColumn fx:id="interestPaid1" maxWidth="136.0" minWidth="150.0" prefWidth="38.0" text="Interest paid" />
+                                                      <TableColumn fx:id="capitalPaid1" maxWidth="78.0" minWidth="150.0" prefWidth="78.0" resizable="false" text="Capital paid" />
+                                                      <TableColumn fx:id="collectedCapital1" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Collected Capital" />
+                                                      <TableColumn fx:id="remainingCapital1" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Remaining Capital" />
+                                                      <TableColumn fx:id="activeSince1" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Active since" />
+                                                      <TableColumn fx:id="nextPaymentOn1" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Next payment on" />
+                                                      <TableColumn fx:id="capitalRemaining1" maxWidth="245.0" minWidth="150.0" prefWidth="97.0" text="Capital Remaining" />
+                                                      <TableColumn fx:id="interestRemaining1" maxWidth="306.0" minWidth="150.0" prefWidth="42.0" text="Interest Remaining" />
+                                                      <TableColumn fx:id="dateFinished1" maxWidth="236.0" minWidth="150.0" prefWidth="53.0" text="Date finished" />
+                                                   </columns>
+                                                </TableColumn>
+                                             </columns>
+                                          </TableView>
+                                       </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <Button fx:id="chargeButton" layoutY="229.0" mnemonicParsing="false" onAction="#chargeButtonActionListener" prefHeight="26.0" prefWidth="73.0" text="Charge" />
+                                    <Button fx:id="withdrawButton" layoutX="140.0" layoutY="229.0" mnemonicParsing="false" onAction="#withdrawButtonActionListener" prefHeight="26.0" prefWidth="80.0" text="Withdraw" />
+                                    <TextField fx:id="trancTextField" layoutX="83.0" layoutY="230.0" prefHeight="25.0" prefWidth="52.0" />
+                                    <TableView fx:id="transactionTable" layoutX="-4.0" prefHeight="218.0" prefWidth="224.0">
+                                       <columns>
+                                          <TableColumn fx:id="transactions" prefWidth="75.0" text="Transactions">
+                                             <columns>
+                                                <TableColumn fx:id="date" prefWidth="55.0" text="Date" />
+                                                <TableColumn fx:id="amount" prefWidth="52.0" text="Amount" />
+                                                <TableColumn fx:id="balance" prefWidth="73.0" text="Balance">
+                                                   <columns>
+                                                      <TableColumn fx:id="before" minWidth="0.0" prefWidth="47.0" text="Before" />
+                                                      <TableColumn fx:id="after" prefWidth="42.0" text="After" />
+                                                   </columns>
+                                                </TableColumn>
+                                             </columns>
+                                          </TableColumn>
+                                       </columns>
+                                    </TableView>
+                                    <Label fx:id="currentBalanceLabel" alignment="CENTER" layoutX="48.0" layoutY="368.0" text="Current Balance:" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Scramble">
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <StackPane fx:id="stackPane1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <GridPane>
+                                      <columnConstraints>
+                                        <ColumnConstraints />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="485.0" minWidth="10.0" prefWidth="171.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="521.0" minWidth="10.0" prefWidth="415.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Categories" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label text="Minimum interest" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="Minimum YAZ" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label text="Maximum involved loans" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label text="Maximum loan share" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label text="Amount to invest" GridPane.columnIndex="1" />
+                                          <Label text="Suitable loans" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="investmentAmountTF" prefHeight="25.0" prefWidth="478.0" GridPane.columnIndex="2" />
+                                          <TextField fx:id="minInterestTF" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <TextField fx:id="minYazTF" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                          <TextField fx:id="maxInvolvedLoansTF" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                          <TextField fx:id="maxShareTF" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                          <Button fx:id="findLoansButton" mnemonicParsing="false" onAction="#findLoansButtonListener" text="Find Loans" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <ComboBox fx:id="categoriesCB" onAction="#categoriesCBActionListener" prefWidth="150.0" />
+                                                <Label text="Chosen:" />
+                                                <ComboBox fx:id="chosenCategoriesCB" prefWidth="150.0" />
+                                                <Button fx:id="clearCategoriesButton" mnemonicParsing="false" onAction="#clearCategoriesButtonActionListener" text="Clear" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                             <children>
+                                                <ComboBox fx:id="loansCB" onAction="#loansCBActionListener" prefWidth="150.0" />
+                                                <Label text="Chosen:" />
+                                                <ComboBox fx:id="chosenLoansCB" prefWidth="150.0" />
+                                                <Button fx:id="scrambleButton" mnemonicParsing="false" onAction="#scrambleButtonActionListener" text="Assign Loans" />
+                                                <Label text="  " />
+                                                <Button fx:id="clearCCBbutton" alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#clearCCBbuttonActionListener" text="Clear" />
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="scrambleInfoLabel" alignment="TOP_RIGHT" contentDisplay="RIGHT" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
+                     </content></Tab>
+                  <Tab fx:id="paymentTab" text="Payment">
+                     <content>
+                        <GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ListView fx:id="notificationListView" prefHeight="190.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets left="50.0" />
+                                 </padding>
+                                 <GridPane.margin>
+                                    <Insets left="70.0" />
+                                 </GridPane.margin></ListView>
+                              <Label text="Notifications:" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                              <AnchorPane prefHeight="100.0" prefWidth="200.0" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+                                 <children>
+                                    <TableView fx:id="takenLoansPayTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="230.0" prefWidth="568.0">
+                                       <columns>
+                                          <TableColumn fx:id="id11" maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="46.0" text="ID" />
+                                          <TableColumn fx:id="capital11" maxWidth="21.0" minWidth="150.0" prefWidth="14.0" text="Capital" />
+                                          <TableColumn fx:id="totalMonths11" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Total months for the loan" />
+                                          <TableColumn fx:id="status11" maxWidth="82.0" minWidth="150.0" prefWidth="47.0" text="Status" />
+                                          <TableColumn fx:id="remainingCapital11" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Remaining Capital" />
+                                          <TableColumn fx:id="nextPaymentOn11" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Next payment on" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                                 <children>
+                                    <Button fx:id="closeLoanButton" mnemonicParsing="false" onAction="#closeLoanButtonActionListener" text="Close Loan">
+                                       <HBox.margin>
+                                          <Insets right="50.0" />
+                                       </HBox.margin></Button>
+                                    <Button fx:id="payButton" mnemonicParsing="false" onAction="#payButtonActionListener" text="Pay Fee">
+                                       <HBox.margin>
+                                          <Insets right="50.0" />
+                                       </HBox.margin></Button>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="paymentErrorLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Loan Sale">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="175.0" text="Choose a loan to list for sale:" />
+                                          <ComboBox fx:id="sellLoanCB" prefWidth="150.0" />
+                                          <Label text="   " />
+                                          <Button fx:id="sellLoanButton" mnemonicParsing="false" onAction="#sellLoanButtonListener" prefHeight="26.0" prefWidth="113.0" text="List for Sale" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="139.0">
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="170.0" text="Choose a loan to buy:" />
+                                          <ComboBox fx:id="buyLoanCB" prefWidth="150.0" />
+                                          <Label text="   " />
+                                          <Button fx:id="buyLoanButton" mnemonicParsing="false" onAction="#buyLoanButtonListener" prefHeight="26.0" prefWidth="86.0" text="Buy Loan" />
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="saleInfoLabel" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="17.0" prefWidth="189.0" text="                                                  " />
+            <Label fx:id="CurrentYazLabel" prefHeight="17.0" prefWidth="274.0" text="Current Yaz:" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
