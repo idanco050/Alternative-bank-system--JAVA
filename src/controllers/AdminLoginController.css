@@ -1,0 +1,50 @@
+.root {
+    -fx-background-image: url('squarebg.jpg');
+    -fx-background-size: 400 400;
+    -fx-background-position: center center;
+
+    /*-fx-font-family: "Arial";*/
+    /*-fx-background: #FFFFFF;*/
+}
+
+/*.label {*/
+/*    -fx-text-fill: black;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-font-size: 12px;*/
+/*    -fx-font-family: "Arial";*/
+/*    -fx-text-fill: #333333;*/
+/*}*/
+
+/*.normal-label {*/
+/*    -fx-text-fill: #ff7700;*/
+/*}*/
+
+/*.normal-text-field {*/
+/*    -fx-text-fill: #333333;*/
+/*}*/
+
+.combo-box {
+    -fx-background-color: #FF985A;
+    -fx-border-color: #5893c5;
+    -fx-border-width: 2px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #FF985A;
+    -fx-text-fill: black;
+}
+
+.combo-box.list-cell {
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-font: bold italic 10pt "Arial";
+    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+    -fx-background-color: #FF985A;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5;
+}

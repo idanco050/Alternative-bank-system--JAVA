@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<TableView fx:id="table" prefHeight="637.0" prefWidth="878.0" stylesheets="@table.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.tables.LoanTableController">
+   <columns>
+      <TableColumn fx:id="id" maxWidth="1.7976931348623157E308" minWidth="150.0" prefWidth="46.0" text="ID" />
+      <TableColumn fx:id="owner" maxWidth="30.0" minWidth="150.0" prefWidth="30.0" text="Owner" />
+      <TableColumn fx:id="category" maxWidth="21.0" minWidth="150.0" prefWidth="14.0" text="Category" />
+      <TableColumn fx:id="capital" maxWidth="21.0" minWidth="150.0" prefWidth="14.0" text="Capital" />
+      <TableColumn fx:id="totalMonths" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Total months for the loan" />
+      <TableColumn fx:id="interestRate" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Interest rate" />
+      <TableColumn fx:id="monthsPerPayment" maxWidth="43.0" minWidth="150.0" prefWidth="43.0" text="Months per payment" />
+      <TableColumn fx:id="status" maxWidth="82.0" minWidth="150.0" prefWidth="47.0" text="Status" />
+      <TableColumn fx:id="interestPaid" maxWidth="136.0" minWidth="150.0" prefWidth="38.0" text="Interest paid" />
+      <TableColumn fx:id="capitalPaid" maxWidth="78.0" minWidth="150.0" prefWidth="78.0" resizable="false" text="Capital paid" />
+      <TableColumn fx:id="collectedCapital" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Collected Capital" />
+      <TableColumn fx:id="remainingCapital" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Remaining Capital" />
+      <TableColumn fx:id="activeSince" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Active since" />
+      <TableColumn fx:id="nextPaymentOn" maxWidth="-Infinity" minWidth="150.0" prefWidth="-1.0" text="Next payment on" />
+      <TableColumn fx:id="capitalRemaining" maxWidth="245.0" minWidth="150.0" prefWidth="97.0" text="Capital Remaining" />
+      <TableColumn fx:id="interestRemaining" maxWidth="306.0" minWidth="150.0" prefWidth="42.0" text="Interest Remaining" />
+      <TableColumn fx:id="dateFinished" maxWidth="236.0" minWidth="150.0" prefWidth="53.0" text="Date finished" />
+   </columns>
+</TableView>
